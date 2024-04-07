@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+</body>
+<style>
+    body {
+        margin: 0;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .square {
+        height: 6px;
+        width: 6px;
+        background-color: red;
+    }
+</style>
+<script>
+
+    function randomBoolean() {
+        return Math.random() < 0.5;
+    }
+
+
+    for (let i = 0; i < 25; i++) {
+        let row = document.createElement('div');
+        row.classList.add('row');
+
+        for (let i = 0; i < 50; i++) {
+            let element = document.createElement('div');
+            element.classList.add('square');
+            row.appendChild(element);
+            document.querySelector('.container').appendChild(row);
+        }
+    }
+
+    setInterval(() => {
+        for (let square of document.getElementsByClassName('square')) {
+            if (Math.random() < .3333)
+                square.style.cssText = "background-color:black;"
+            else if (Math.random() < .6666) square.style.cssText = "background-color:white;"
+            else square.style.cssText = "background-color:gray;"
+        }
+    }, 50)
+
+
+</script>
+
+</html>
